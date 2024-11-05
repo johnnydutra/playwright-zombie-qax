@@ -12,8 +12,8 @@ export class LoginPage {
   }
 
   async submitForm(email, password) {
-    await this.page.getByPlaceHolder('E-mail').fill(email);
-    await this.page.getByPlaceHolder('Senha').fill(password);
+    await this.page.getByPlaceholder('E-mail').fill(email);
+    await this.page.getByPlaceholder('Senha').fill(password);
     await this.page.getByText('Entrar').click();
   }
 
