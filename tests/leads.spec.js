@@ -3,9 +3,13 @@ import { test, expect } from '@playwright/test';
 
 import { LandingPage } from './pages/LandingPage';
 
-test('should signup a lead into the wait list', async ({ page }) => {
-  const landingPage = new LandingPage(page);
+let landingPage;
 
+test.beforeEach(async ({ page }) => {
+  landingPage = new LandingPage(page);
+});
+
+test('should signup a lead into the wait list', async ({ page }) => {
   await landingPage.visit();
   await landingPage.openLeadModal();
   await landingPage.submitLeadForm('Johnny Test', 'johnny@test.com');
@@ -13,8 +17,6 @@ test('should signup a lead into the wait list', async ({ page }) => {
 });
 
 test('should not signup lead with invalid email', async ({ page }) => {
-  const landingPage = new LandingPage(page);
-
   await landingPage.visit();
   await landingPage.openLeadModal();
   await landingPage.submitLeadForm('Johnny Test', 'johnnytest.com');
@@ -22,8 +24,6 @@ test('should not signup lead with invalid email', async ({ page }) => {
 });
 
 test('should not signup with blank name', async ({ page }) => {
-  const landingPage = new LandingPage(page);
-
   await landingPage.visit();
   await landingPage.openLeadModal();
   await landingPage.submitLeadForm('', 'johnny@test.com');
@@ -31,8 +31,6 @@ test('should not signup with blank name', async ({ page }) => {
 });
 
 test('should not signup with blank email', async ({ page }) => {
-  const landingPage = new LandingPage(page);
-
   await landingPage.visit();
   await landingPage.openLeadModal();
   await landingPage.submitLeadForm('Johnny Test', '');
@@ -40,8 +38,6 @@ test('should not signup with blank email', async ({ page }) => {
 });
 
 test('should not signup with blank form', async ({ page }) => {
-  const landingPage = new LandingPage(page);
-
   await landingPage.visit();
   await landingPage.openLeadModal();
   await landingPage.submitLeadForm('', '');
