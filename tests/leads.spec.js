@@ -1,87 +1,49 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
 
+import { LandingPage } from './pages/LandingPage';
+
 test('should signup a lead into the wait list', async ({ page }) => {
-  await page.goto('http://localhost:3000');
+  const landingPage = new LandingPage(page);
 
-  await page.getByRole('button', { name: /Aperte o play/ }).click();
-
-  await expect(
-    page.getByTestId('modal').getByRole('heading')
-  ).toHaveText('Fila de espera');
-
-  await page.locator('#name').fill('Johnny Test');
-  await page.getByPlaceholder('Informe seu email').fill('johnny@test.com');
-
-  await page.getByTestId('modal').getByText('Quero entrar na fila!').click();
-
-  const toastText = 'Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato!';
-  await expect(
-    page.locator('.toast')
-  ).toContainText(toastText);
-
-  await expect(page.locator('.toast')).toBeHidden({ timeout: 5000 });
+  await landingPage.visit();
+  await landingPage.openLeadModal();
+  await landingPage.submitLeadForm('Johnny Test', 'johnny@test.com');
+  await landingPage.toastHasText('Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato!');
 });
 
 test('should not signup lead with invalid email', async ({ page }) => {
-  await page.goto('http://localhost:3000');
+  const landingPage = new LandingPage(page);
 
-  await page.getByRole('button', { name: /Aperte o play/ }).click();
-
-  await expect(
-    page.getByTestId('modal').getByRole('heading')
-  ).toHaveText('Fila de espera');
-
-  await page.locator('#name').fill('Johnny Test');
-  await page.getByPlaceholder('Informe seu email').fill('johnnytest.com');
-
-  await page.getByTestId('modal').getByText('Quero entrar na fila!').click();
-
-  await expect(page.locator('.alert')).toHaveText('Email incorreto');
+  await landingPage.visit();
+  await landingPage.openLeadModal();
+  await landingPage.submitLeadForm('Johnny Test', 'johnnytest.com');
+  await landingPage.alertHasText('Email incorreto');
 });
 
 test('should not signup with blank name', async ({ page }) => {
-  await page.goto('http://localhost:3000');
+  const landingPage = new LandingPage(page);
 
-  await page.getByRole('button', { name: /Aperte o play/ }).click();
-
-  await expect(
-    page.getByTestId('modal').getByRole('heading')
-  ).toHaveText('Fila de espera');
-
-  await page.getByPlaceholder('Informe seu email').fill('johnny@test.com');
-
-  await page.getByTestId('modal').getByText('Quero entrar na fila!').click();
-
-  await expect(page.locator('.alert')).toHaveText('Campo obrigatório');
+  await landingPage.visit();
+  await landingPage.openLeadModal();
+  await landingPage.submitLeadForm('', 'johnny@test.com');
+  await landingPage.alertHasText('Campo obrigatório');
 });
 
 test('should not signup with blank email', async ({ page }) => {
-  await page.goto('http://localhost:3000');
+  const landingPage = new LandingPage(page);
 
-  await page.getByRole('button', { name: /Aperte o play/ }).click();
-
-  await expect(
-    page.getByTestId('modal').getByRole('heading')
-  ).toHaveText('Fila de espera');
-
-  await page.locator('#name').fill('Johnny Test');
-
-  await page.getByTestId('modal').getByText('Quero entrar na fila!').click();
-
-  await expect(page.locator('.alert')).toHaveText('Campo obrigatório');
+  await landingPage.visit();
+  await landingPage.openLeadModal();
+  await landingPage.submitLeadForm('Johnny Test', '');
+  await landingPage.alertHasText('Campo obrigatório');
 });
 
 test('should not signup with blank form', async ({ page }) => {
-  await page.goto('http://localhost:3000');
+  const landingPage = new LandingPage(page);
 
-  await page.getByRole('button', { name: /Aperte o play/ }).click();
-
-  await expect(
-    page.getByTestId('modal').getByRole('heading')
-  ).toHaveText('Fila de espera');
-
-  await page.getByTestId('modal').getByText('Quero entrar na fila!').click();
-
-  await expect(page.locator('.alert')).toHaveText(['Campo obrigatório', 'Campo obrigatório']);
+  await landingPage.visit();
+  await landingPage.openLeadModal();
+  await landingPage.submitLeadForm('', '');
+  await landingPage.alertHasText(['Campo obrigatório', 'Campo obrigatório']);
 });
