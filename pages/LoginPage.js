@@ -23,4 +23,9 @@ export class LoginPage {
     const logoutLink = this.page.locator('a[href="/logout"]');
     await expect(logoutLink).toBeVisible();
   }
+
+  async checkInputAlert(text) {
+    const alert = this.page.locator('input[class$="alert"]');
+    await expect(alert).toHaveText(text);
+  }
 }
