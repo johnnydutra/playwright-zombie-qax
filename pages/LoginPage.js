@@ -17,13 +17,6 @@ export class LoginPage {
     await this.page.getByText('Entrar').click();
   }
 
-  async isLoggedIn() {
-    await this.page.waitForLoadState('networkidle');
-    await expect(this.page).toHaveURL(/.*admin/);
-    const logoutLink = this.page.locator('a[href="/logout"]');
-    await expect(logoutLink).toBeVisible();
-  }
-
   async checkInputAlert(text) {
     const alert = this.page.locator('span[class$="alert"]');
     await expect(alert).toHaveText(text);

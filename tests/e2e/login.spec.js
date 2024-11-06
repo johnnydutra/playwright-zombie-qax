@@ -2,20 +2,23 @@
 import { test } from '@playwright/test';
 
 import { LoginPage } from '../../pages/LoginPage';
-import { Toast } from '../../pages/Components'
+import { MoviesPage } from '../../pages/MoviesPage';
+import { Toast } from '../../pages/Components';
 
 let loginPage;
+let moviesPage;
 let toast;
 
 test.beforeEach(async ({ page }) => {
   loginPage = new LoginPage(page);
+  moviesPage = new MoviesPage(page);
   toast = new Toast(page);
 })
 
 test('should login as admin', async ({ page }) => {
   await loginPage.visit();
   await loginPage.submitForm('admin@zombieplus.com', 'pwd123');
-  await loginPage.isLoggedIn();
+  await moviesPage.isLoggedIn();
 });
 
 test('should not login with incorrect password', async ({ page }) => {
