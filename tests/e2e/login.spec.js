@@ -46,6 +46,6 @@ test('should not login with blank password', async ({ page }) => {
 
 test('should not login with blank form', async ({ page }) => {
   await loginPage.visit();
-  await loginPage.submitForm('johnny@test.com', '');
+  await loginPage.submitForm('', '');
   await loginPage.checkInputAlert(['Campo obrigatório', 'Campo obrigatório']);
 });

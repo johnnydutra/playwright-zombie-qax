@@ -25,7 +25,7 @@ export class LoginPage {
   }
 
   async checkInputAlert(text) {
-    const alert = this.page.locator('input[class$="alert"]');
+    const alert = this.page.locator('span[class$="alert"]');
     await expect(alert).toHaveText(text);
   }
 }
