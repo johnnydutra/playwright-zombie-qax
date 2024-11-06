@@ -1,9 +1,7 @@
 const { test } = require('../../support');
 
 test('should login as admin', async ({ page }) => {
-  await page.auth.visit();
-  await page.auth.submitForm('admin@zombieplus.com', 'pwd123');
-  await page.auth.isLoggedIn();
+  await page.auth.login('admin@zombieplus.com', 'pwd123', 'Admin');
 });
 
 test('should not login with incorrect password', async ({ page }) => {

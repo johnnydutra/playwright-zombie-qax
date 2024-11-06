@@ -5,6 +5,12 @@ export class Auth {
     this.page = page;
   }
 
+  async login(email, password, username) {
+    await this.visit();
+    await this.submitForm(email, password);
+    await this.isLoggedIn(username);
+  }
+
   async visit() {
     await this.page.goto('http://localhost:3000/admin/login');
     const loginForm = this.page.locator('.login-form');
@@ -22,9 +28,8 @@ export class Auth {
     await expect(alert).toHaveText(text);
   }
 
-  async isLoggedIn() {
-    await this.page.waitForLoadState('networkidle');
-    const logoutLink = this.page.locator('a[href="/logout"]');
-    await expect(logoutLink).toBeVisible();
+  async isLoggedIn(username) {
+    const loggedUser = this.page.locator('.logged-user');
+    await expect(loggedUser).toHaveText(`Olá, ${username}`);
   }
 }

@@ -6,21 +6,16 @@ test('should add a new movie', async ({ page }) => {
   const movie = data.create;
   await executeSQL(`DELETE FROM movies WHERE title = '${movie.title}'`);
 
-  await page.auth.visit();
-  await page.auth.submitForm('admin@zombieplus.com', 'pwd123');
-  await page.auth.isLoggedIn();
-
+  await page.auth.login('admin@zombieplus.com', 'pwd123', 'Admin');
   await page.movies.add(movie.title, movie.overview, movie.company, movie.release_year);
   await page.toast.containsText('Cadastro realizado com sucesso!');
 });
 
 test('should not add new movie with unfilled mandatory fields', async ({ page }) => {
-  await page.auth.visit();
-  await page.auth.submitForm('admin@zombieplus.com', 'pwd123');
-  await page.auth.isLoggedIn();
-
+  await page.auth.login('admin@zombieplus.com', 'pwd123', 'Admin');
   await page.movies.accessForm();
   await page.movies.submitForm();
+
   await page.movies.alertHasText([
     'Por favor, informe o título.',
     'Por favor, informe a sinopse.',
