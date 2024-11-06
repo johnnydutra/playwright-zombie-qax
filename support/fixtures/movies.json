@@ -2,7 +2,7 @@
   "create": {
     "title": "A Noite dos Mortos-Vivos",
     "overview": "Um grupo luta para sobreviver em uma casa isolada durante um ataque de mortos-vivos.",
-    "featured": false,
+    "featured": true,
     "release_year": 1970,
     "company": "Fox Entertainment",
     "cover": "/covers/movies/wwz.png"
@@ -23,13 +23,13 @@
     "company": "Warner Bros. Pictures",
     "cover": "/path/to/cover3.png"
   },
-  "zumbilandia": {
+  "duplicate": {
     "title": "Zumbilândia",
     "overview": "Um grupo improvável forma uma aliança para sobreviver ao apocalipse zumbi.",
-    "featured": false,
+    "featured": true,
     "release_year": 2009,
     "company": "Columbia Pictures",
-    "cover": "/path/to/cover4.png"
+    "cover": "/covers/movies/zumbilandia.jpg"
   },
   "exterminio": {
     "title": "Extermínio",
