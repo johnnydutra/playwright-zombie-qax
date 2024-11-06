@@ -1,5 +1,6 @@
 // @ts-check
 import { test } from '@playwright/test';
+import { faker } from '@faker-js/faker';
 
 import { LandingPage } from '../../pages/LandingPage';
 import { Toast } from '../../pages/Components';
@@ -13,9 +14,12 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('should signup a lead into the wait list', async ({ page }) => {
+  const leadName = faker.person.fullName();
+  const leadEmail = faker.internet.email();
+
   await landingPage.visit();
   await landingPage.openLeadModal();
-  await landingPage.submitLeadForm('Johnny Test', 'johnny@test.com');
+  await landingPage.submitLeadForm(leadName, leadEmail);
   await toast.hasText('Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato!');
 });
 
