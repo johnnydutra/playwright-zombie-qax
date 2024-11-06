@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 
-export class LoginPage {
+export class Auth {
   constructor(page) {
     this.page = page;
   }
@@ -20,5 +20,11 @@ export class LoginPage {
   async checkInputAlert(text) {
     const alert = this.page.locator('span[class$="alert"]');
     await expect(alert).toHaveText(text);
+  }
+
+  async isLoggedIn() {
+    await this.page.waitForLoadState('networkidle');
+    const logoutLink = this.page.locator('a[href="/logout"]');
+    await expect(logoutLink).toBeVisible();
   }
 }
