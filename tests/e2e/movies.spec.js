@@ -30,10 +30,9 @@ test('should not add new movie with unfilled mandatory fields', async ({ page })
 test('should not add a new movie with duplicated title', async ({ page, request }) => {
   const movie = data.duplicate;
 
-
-
+  await request.api.postMovie(movie);
 
   await page.auth.login('admin@zombieplus.com', 'pwd123', 'Admin');
   await page.movies.add(movie);
-  await page.toast.containsText('Cadastro realizado com sucesso!');
+  await page.toast.containsText('Este conteúdo já encontra-se cadastrado no catálogo');
 });
