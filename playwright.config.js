@@ -13,7 +13,7 @@ require('dotenv').config();
 module.exports = defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
-  fullyParallel: false, // to avoid beforeAll deleting mass from a single suite
+  fullyParallel: true, // to avoid beforeAll deleting mass from a single suite
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -30,7 +30,8 @@ module.exports = defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure'
+    video: 'retain-on-failure',
+    viewport: { width: 1440, height: 900 }
   },
 
   /* Configure projects for major browsers */
