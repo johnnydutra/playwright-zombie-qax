@@ -2,8 +2,8 @@ const { expect, test } = require('../../support');
 import { executeSQL } from '../../support/helpers/database';
 const data = require('../../support/fixtures/movies.json');
 
-test.beforeAll(() => {
-  executeSQL('DELETE FROM movies');
+test.beforeAll(async () => {
+  await executeSQL('DELETE FROM movies');
 });
 
 test('should add a new movie', async ({ page }) => {
