@@ -5,7 +5,7 @@ const { Leads } = require('../actions/Leads');
 const { Movies } = require('../actions/Movies');
 const { Toast } = require('../actions/Components');
 
-const { API } = require('../actions/API');
+const { API } = require('./api');
 
 const test = base.extend({
   page: async ({ page }, use) => {
