@@ -36,3 +36,11 @@ test('should not add a new movie with duplicated title', async ({ page, request 
   await page.movies.add(movie);
   await page.popup.hasText(`O título '${movie.title}' já consta em nosso catálogo. Por favor, verifique se há necessidade de atualizações ou correções para este item.`);
 });
+
+test('should be able to remove a movie', async ({ page, request }) => {
+  const movie = data.remove;
+  await request.api.postMovie(movie);
+
+  await page.auth.login('admin@zombieplus.com', 'pwd123', 'Admin');
+  await page.movies.remove(movie.title);
+});

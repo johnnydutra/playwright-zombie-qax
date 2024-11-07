@@ -55,13 +55,13 @@
     "company": "Sony Pictures",
     "cover": "/path/to/cover7.png"
   },
-  "madrugada_dos_mortos": {
+  "remove": {
     "title": "Madrugada dos Mortos",
     "overview": "Sobreviventes se abrigam em um shopping após uma invasão zumbi devastadora.",
     "featured": false,
     "release_year": 2004,
     "company": "Universal Pictures",
-    "cover": "/path/to/cover8.png"
+    "cover": "/covers/movies/madrugada.jpg"
   },
   "zumbis_na_disney": {
     "title": "Zumbis na Disney",

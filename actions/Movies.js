@@ -30,4 +30,9 @@ export class Movies {
     const alert = this.page.locator('span[class$="alert"]');
     await expect(alert).toHaveText(text);
   }
+
+  async remove(movie) {
+    await this.page.getByRole('row', { name: movie.title }).getByRole('button').click();
+    await this.page.click('.confirm-removal');
+  }
 }
