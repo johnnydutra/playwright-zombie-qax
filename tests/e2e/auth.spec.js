@@ -9,7 +9,7 @@ test('should not login with incorrect password', async ({ page }) => {
   await page.auth.submitForm('admin@zombieplus.com', 'abc123');
   
   const message = 'Ocorreu um erro ao tentar efetuar o login. Por favor, verifique suas credenciais e tente novamente.';
-  await page.toast.containsText(message);
+  await page.popup.hasText(message);
 });
 
 test('should not login with invalid email', async ({ page }) => {

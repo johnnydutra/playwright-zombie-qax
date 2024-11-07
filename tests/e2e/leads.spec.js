@@ -8,7 +8,7 @@ test('should signup a lead into the wait list', async ({ page }) => {
   await page.leads.visit();
   await page.leads.openLeadModal();
   await page.leads.submitLeadForm(leadName, leadEmail);
-  await page.toast.containsText('Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato!');
+  await page.popup.hasText('Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato.');
 });
 
 test('should not signup a lead with duplicated email', async ({ page, request }) => {
@@ -26,7 +26,7 @@ test('should not signup a lead with duplicated email', async ({ page, request })
   await page.leads.visit();
   await page.leads.openLeadModal();
   await page.leads.submitLeadForm(leadName, leadEmail);
-  await page.toast.containsText('O endereço de e-mail fornecido já está registrado em nossa fila de espera');
+  await page.popup.hasText('Verificamos que o endereço de e-mail fornecido já consta em nossa lista de espera. Isso significa que você está um passo mais perto de aproveitar nossos serviços.');
 });
 
 test('should not signup lead with invalid email', async ({ page }) => {
