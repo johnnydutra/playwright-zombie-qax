@@ -52,8 +52,7 @@ test('should return correct data on search', async ({ page, request }) => {
   });
 
   await page.auth.login('admin@zombieplus.com', 'pwd123', 'Admin');
+  
   await page.movies.search(movies.input);
-
-  const rows = page.getByRole('row');
-  await expect(rows).toContainText(movies.output);
+  await page.movies.tableHas(movies.output);
 });

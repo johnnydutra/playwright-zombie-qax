@@ -40,4 +40,9 @@ export class Movies {
     await this.page.getByPlaceholder('Busque pelo nome').fill(term);
     await this.page.locator('.actions button').click();
   }
+
+  async tableHas(content) {
+    const rows = this.page.getByRole('row');
+    await expect(rows).toContainText(content);
+  }
 }
