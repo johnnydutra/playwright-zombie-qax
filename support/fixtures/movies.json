@@ -5,55 +5,15 @@
     "featured": true,
     "release_year": 1970,
     "company": "Fox Entertainment",
-    "cover": "/covers/movies/wwz.png"
-  },
-  "despertar_dos_mortos": {
-    "title": "Despertar dos Mortos",
-    "overview": "Sobreviventes se abrigam em um shopping enquanto o mundo é devastado por zumbis.",
-    "featured": false,
-    "release_year": 1978,
-    "company": "Universal Pictures",
-    "cover": "/path/to/cover2.png"
-  },
-  "dia_dos_mortos": {
-    "title": "Dia dos Mortos",
-    "overview": "Militares e cientistas em um bunker enfrentam uma invasão zumbi.",
-    "featured": false,
-    "release_year": 1985,
-    "company": "Warner Bros. Pictures",
-    "cover": "/path/to/cover3.png"
+    "cover": "/covers/movies/mortos-vivos.jpg"
   },
   "duplicate": {
-    "title": "Zumbilândia",
-    "overview": "Um grupo improvável forma uma aliança para sobreviver ao apocalipse zumbi.",
-    "featured": true,
-    "release_year": 2009,
-    "company": "Columbia Pictures",
-    "cover": "/covers/movies/zumbilandia.jpg"
-  },
-  "exterminio": {
-    "title": "Extermínio",
-    "overview": "Um vírus mortal transforma a população em criaturas violentas e sedentas de sangue.",
-    "featured": false,
-    "release_year": 2002,
-    "company": "Paramount Pictures",
-    "cover": "/path/to/cover5.png"
-  },
-  "guerra_mundial_z": {
     "title": "Guerra Mundial Z",
     "overview": "Um ex-investigador da ONU luta para impedir uma pandemia zumbi global.",
     "featured": false,
     "release_year": 2013,
     "company": "Paramount Pictures",
-    "cover": "/path/to/cover6.png"
-  },
-  "resident_evil_o_hospede_maldito": {
-    "title": "Resident Evil: O Hóspede Maldito",
-    "overview": "Uma equipe enfrenta zumbis em uma instalação subterrânea controlada por uma IA mortal.",
-    "featured": false,
-    "release_year": 2002,
-    "company": "Sony Pictures",
-    "cover": "/path/to/cover7.png"
+    "cover": "/covers/movies/wwz.png"
   },
   "remove": {
     "title": "Madrugada dos Mortos",
@@ -63,60 +23,54 @@
     "company": "Universal Pictures",
     "cover": "/covers/movies/madrugada.jpg"
   },
-  "zumbis_na_disney": {
-    "title": "Zumbis na Disney",
-    "overview": "Um musical de zumbis e humanos convivendo em um mundo dividido.",
-    "featured": false,
-    "release_year": 2018,
-    "company": "Walt Disney Studios",
-    "cover": "/path/to/cover9.png"
-  },
-  "army_of_the_dead": {
-    "title": "Army of the Dead",
-    "overview": "Mercenários planejam um assalto em Las Vegas durante um surto zumbi.",
-    "featured": false,
-    "release_year": 2021,
-    "company": "Netflix",
-    "cover": "/path/to/cover10.png"
-  },
-  "invasao_zumbi": {
-    "title": "Invasão Zumbi",
-    "overview": "Passageiros de um trem lutam para sobreviver quando um surto zumbi começa.",
-    "featured": false,
-    "release_year": 2016,
-    "company": "Fox Entertainment",
-    "cover": "/path/to/cover11.png"
-  },
-  "fome_de_viver": {
-    "title": "Fome de Viver",
-    "overview": "Uma história de amor e sobrevivência em um mundo dominado por zumbis.",
-    "featured": false,
-    "release_year": 2023,
-    "company": "Amazon Studios",
-    "cover": "/path/to/cover12.png"
-  },
-  "cidade_dos_mortos": {
-    "title": "Cidade dos Mortos",
-    "overview": "Os habitantes de uma cidade lutam para sobreviver a uma epidemia zumbi.",
-    "featured": false,
-    "release_year": 2010,
-    "company": "Lionsgate Films",
-    "cover": "/path/to/cover13.png"
-  },
-  "o_abrigo_dos_mortos": {
-    "title": "O Abrigo dos Mortos",
-    "overview": "Sobreviventes buscam refúgio em um abrigo durante um ataque de zumbis.",
-    "featured": false,
-    "release_year": 1980,
-    "company": "Columbia Pictures",
-    "cover": "/path/to/cover14.png"
-  },
-  "o_ultimo_refugio": {
-    "title": "O Último Refúgio",
-    "overview": "Um grupo de sobreviventes busca um último refúgio contra a horda de zumbis.",
-    "featured": false,
-    "release_year": 2024,
-    "company": "Sony Pictures",
-    "cover": "/path/to/cover15.png"
+  "search": {
+    "input": "zumbi",
+    "output": [
+      "Zumbilândia",
+      "Zumbis na Disney",
+      "Invasão Zumbi"
+    ],
+    "data": [
+      {
+        "title": "Zumbilândia",
+        "overview": "Um grupo improvável forma uma aliança para sobreviver ao apocalipse zumbi.",
+        "featured": true,
+        "release_year": 2009,
+        "company": "Columbia Pictures",
+        "cover": "/covers/movies/zumbilandia.jpg"
+      },
+      {
+        "title": "Zumbis na Disney",
+        "overview": "Um musical de zumbis e humanos convivendo em um mundo dividido.",
+        "featured": false,
+        "release_year": 2018,
+        "company": "Walt Disney Studios",
+        "cover": "/covers/movies/placeholder.jpg"
+      },
+      {
+        "title": "Invasão Zumbi",
+        "overview": "Passageiros de um trem lutam para sobreviver quando um surto zumbi começa.",
+        "featured": false,
+        "release_year": 2016,
+        "company": "Fox Entertainment",
+        "cover": "/covers/movies/placeholder.jpg"
+      },
+      {
+        "title": "Fome de Viver",
+        "overview": "Uma história de amor e sobrevivência em um mundo dominado por zumbis.",
+        "featured": false,
+        "release_year": 2023,
+        "company": "Amazon Studios",
+        "cover": "/path/to/cover12.png"
+      },
+      {
+        "title": "Cidade dos Mortos",
+        "overview": "Os habitantes de uma cidade lutam para sobreviver a uma epidemia zumbi.",
+        "featured": false,
+        "release_year": 2010,
+        "company": "Lionsgate Films",
+        "cover": "/path/to/cover13.png"
+      }
+    ]
   }
 }

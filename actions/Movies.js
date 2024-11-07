@@ -35,4 +35,9 @@ export class Movies {
     await this.page.getByRole('row', { name: movie.title }).getByRole('button').click();
     await this.page.click('.confirm-removal');
   }
+
+  async search(term) {
+    await this.page.getByPlaceholder('Busque pelo nome').fill(term);
+    await this.page.locator('.actions button').click();
+  }
 }

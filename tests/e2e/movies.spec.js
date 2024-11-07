@@ -44,3 +44,16 @@ test('should be able to remove a movie', async ({ page, request }) => {
   await page.auth.login('admin@zombieplus.com', 'pwd123', 'Admin');
   await page.movies.remove(movie.title);
 });
+
+test('should return correct data on search', async ({ page, request }) => {
+  const movies = data.search;
+  movies.data.forEach(async (movie) => {
+    await request.api.postMovie(movie);
+  });
+
+  await page.auth.login('admin@zombieplus.com', 'pwd123', 'Admin');
+  await page.movies.search(movies.input);
+
+  const rows = page.getByRole('row');
+  await expect(rows).toContainText(movies.output);
+});
